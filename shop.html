@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Pet Food</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="css/fontawesome.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Farro:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .breadcrumb-wrapper {
+            background: url('images/bg-curly.png'), linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('images/inner_HEADER.jpg') top center no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top bg-white " style="font-size: 14px;">
+        <div class="container">
+
+            <!-- the hamburger -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbar-on-mobile">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- the brand -->
+            <a class="navbar-brand mx-auto" href="home.html">
+                <img src="images/logo.png" alt="" style="width: 100px;">
+            </a>
+
+            <!-- the cart on small screen => mobile -->
+            <li class="ms-auto d-inline-block d-lg-none">
+                <a class="nav-link-mobile p-0" data-bs-toggle="offcanvas" data-bs-target="#shoppingCartOffcanvas">
+                    <span><i class="fa-solid fa-cart-shopping text-primary"></i></span>
+                </a>
+            </li>
+
+            <!-- the nav bar on large screen => desktop -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav navbar-nav-1 ms-lg-6 mb-lg-0 fw-bold">
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-hover" href="home.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-hover" href="#">About us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-hover active" href="shop.html">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-hover" href="#">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-hover" href="#">Contact</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav navbar-nav-2 ms-auto mb-2 mb-lg-0 fw-bold d-flex">
+                    <li class="nav-item">
+                        <a class="nav-link p-0" href="#">
+                            <span class="me-2"><i class="fa-solid fa-search text-primary"></i></span>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown dropstart">
+                        <a class="nav-link p-0 dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"
+                            href="#">
+                            <span class="me-2"><i class="fa-solid fa-user text-primary"></i></span>
+                        </a>
+                        <div class="dropdown-menu p-0">
+                            <div class="sign-in border border-primary px-4 pt-5 pb-3 bg-light text-black"
+                                style="min-width: 350px;">
+                                <div class="d-flex justify-content-between">
+                                    <h3>Sign in</h3>
+                                    <a href="#" class="text-primary">Create an Account</a>
+                                </div>
+                                <form class="mb-3">
+                                    <div class="mb-3">
+                                        <label for="username" class="form-label">Username or email <span
+                                                class="text-danger">*</span></label>
+                                        <input class="form-control text-black" type="text" id="username"
+                                            placeholder="Username">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="password" class="form-label">Password <span
+                                                class="text-danger">*</span></label>
+                                        <input class="form-control text-black" type="text" id="password"
+                                            placeholder="Password">
+                                    </div>
+                                    <div class="d-grid">
+                                        <button class="btn btn-primary fw-bold text-uppercase">
+                                            Login
+                                            <span class="fa-stack sm-text ms-1" style="margin-bottom: 1px;">
+                                                <i class="fas fa-circle fa-stack-2x text-black"></i>
+                                                <i class="fas fa-play fa-stack-1x text-primary"></i>
+                                            </span>
+                                        </button>
+                                    </div>
+                                </form>
+                                <div class="text-end">
+                                    <p class="text-primary">Lost your password?</p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link p-0" href="#" data-bs-toggle="offcanvas"
+                            data-bs-target="#shoppingCartOffcanvas">
+                            <span class="me-2"><i class="fa-solid fa-cart-shopping text-primary"></i></span>
+                            <span class="fa-stack ms-1" style="font-size: 10px;">
+                                <i class="fas fa-circle text-primary fa-stack-2x"></i>
+                                <p class="fa-stack-1x text-black">0</p>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- the shopping cart offcanvas -->
+    <div class="offcanvas offcanvas-end text-black" tabindex="-1" id="shoppingCartOffcanvas"
+        aria-labelledby="offcanvasLabel">
+        <div class="offcanvas-header border-bottom py-4">
+            <h5 class="offcanvas-title" id="offcanvasLabel">Shopping cart</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <p class="text-black-50 text-center xxl-text">No products in the cart</p>
+        </div>
+    </div>
+
+    <!-- the nav bar canvas on small screen => mobile  -->
+    <div class="offcanvas offcanvas-start text-bg-light" tabindex="-1" id="navbar-on-mobile" style="z-index: 1055">
+        <div class="offcanvas-header px-4 pt-4">
+            <h5 class="offcanvas-title fw-bold" id="offcanvasLabel">main menu</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <img class="mx-4" src="images/line-break.png" alt="" style="width: 60px;">
+        <div class="offcanvas-body">
+            <ul class="navbar-nav-mobile fw-bold list-group list-group-flush">
+                <li class="navbar-item-mobile list-group-item p-0 py-2 mx-3">
+                    <a class="navbar-link-mobile text-decoration-none active" href="#">HOME</a>
+                </li>
+                <li class="navbar-item-mobile list-group-item p-0 py-2 mx-3">
+                    <a class="navbar-link-mobile text-decoration-none" href="#">SHOP</a>
+                </li>
+                <li class="navbar-item-mobile list-group-item p-0 py-2 mx-3">
+                    <a class="navbar-link-mobile text-decoration-none" href="#">ABOUT</a>
+                </li>
+                <li class="navbar-item-mobile list-group-item p-0 py-2 mx-3">
+                    <a class="navbar-link-mobile text-decoration-none" href="#">BLOG</a>
+                </li>
+                <li class="navbar-item-mobile list-group-item p-0 py-2 mx-3">
+                    <a class="navbar-link-mobile text-decoration-none" href="#">PAGES</a>
+                </li>
+                <li class="navbar-item-mobile list-group-item p-0 py-2 mx-3">
+                    <a class="navbar-link-mobile text-decoration-none" href="#">CONTACT</a>
+                </li>
+                <li class="navbar-item-mobile list-group-item p-0 py-2 mx-3">
+                    <a class="navbar-link-mobile text-decoration-none p-0" href="#">
+                        <span class="me-2"><i class="fa-solid fa-location-dot text-primary"></i></span>
+                        Store Locator
+                    </a>
+                </li>
+                <li class="navbar-item-mobile list-group-item p-0 py-2 mx-3 dropdown dropstart">
+                    <a class="navbar-link-mobile text-decoration-none p-0" data-bs-toggle="modal"
+                        data-bs-target="#signInModal" href="#">
+                        <span class="me-2"><i class="fa-solid fa-user text-primary"></i></span>
+                        Sign In
+                    </a>
+                    <!-- Modal -->
+                    <div class="modal fade" id="signInModal" data-bs-backdrop="static" data-bs-keyboard="false"
+                        style="z-index: 1800;">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header border-bottom-0    ">
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body p-0">
+                                    <div class="sign-in px-4 pt-3 pb-3 bg-light text-black w-100">
+                                        <div class="d-flex justify-content-between">
+                                            <h3>Sign in</h3>
+                                            <a href="#" class="text-primary">Create an Account</a>
+                                        </div>
+                                        <form class="mb-3">
+                                            <div class="mb-3">
+                                                <label for="username" class="form-label">Username or email <span
+                                                        class="text-danger">*</span></label>
+                                                <input class="form-control text-black" type="text" id="username"
+                                                    placeholder="Username">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="password" class="form-label">Password <span
+                                                        class="text-danger">*</span></label>
+                                                <input class="form-control text-black" type="text" id="password"
+                                                    placeholder="Password">
+                                            </div>
+                                            <div class="d-grid">
+                                                <button class="btn btn-primary fw-bold text-uppercase">
+                                                    Login
+                                                    <span class="fa-stack sm-text ms-1" style="margin-bottom: 1px;">
+                                                        <i class="fas fa-circle fa-stack-2x text-black"></i>
+                                                        <i class="fas fa-play fa-stack-1x text-primary"></i>
+                                                    </span>
+                                                </button>
+                                            </div>
+                                        </form>
+                                        <div class="text-end">
+                                            <p class="text-primary">Lost your password?</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <section class="breadcrumb-wrapper">
+        <div class="container text-white pt-10 pb-9">
+            <div class="row">
+                <div class="d-flex flex-column justify-content-center align-items-center gap-2">
+                    <!-- Change into the name of the page -->
+                    <h2 class="fw-bold display-2">All Products</h2>
+                    <div class="d-flex gap-2 lg-text">
+                        <a href="home.html" class="m-0 text-decoration-none link-light">Home</a>
+                        <span class="text-primary">
+                            <i class="fas fa-circle" style="transform: scale(0.5);"></i>
+                        </span>
+                        <!-- Change into the name of the page -->
+                        <p class="m-0 text-white-50">Product</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <svg class="frame-decoration" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"
+            viewBox="0 0 1920 192.275">
+            <defs>
+                <style>
+                    .cls-1 {
+                        fill: white;
+                    }
+                </style>
+            </defs>
+            <title>frame-decoration</title>
+            <path class="cls-1"
+                d="M0,158.755s63.9,52.163,179.472,50.736c121.494-1.5,185.839-49.738,305.984-49.733,109.21,0,181.491,51.733,300.537,50.233,123.941-1.562,225.214-50.126,390.43-50.374,123.821-.185,353.982,58.374,458.976,56.373,217.907-4.153,284.6-57.236,284.6-57.236V351.03H0V158.755Z"
+                transform="translate(0 -158.755)" />
+        </svg>
+    </section>
+
+    <section class="py-4 text-secondary">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="vstack gap-5">
+                        <div class="card text-secondary px-4 py-5 border-0 bg-info rounded-4">
+                            <h5 class="text-center text-uppercase fw-bold text mb-4">Cart</h5>
+                            <p>No products in the cart</p>
+                        </div>
+                        <div class="card px-4 py-5 border-0 bg-secondary position-relative rounded-4">
+                            <input type="text" name="search" id="search"
+                                class="form-control text-secondary rounded-5 py-3 px-4" placeholder="Search products">
+                            </input>
+                            <span class="fa-stack sm-text ms-1 position-absolute search-button"
+                                style="margin-bottom: 1px;">
+                                <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                                <i class="fas fa-search fa-stack-1x text-secondary"></i>
+                            </span>
+                        </div>
+                        <div class="card text-secondary px-4 py-5 border-0 bg-info rounded-4">
+                            <h5 class="text-center text-uppercase fw-bold text mb-4">Product Categories</h5>
+                            <ul class="list-unstyled vstack gap-3">
+                                <li class="d-flex gap-3 align-items-center">
+                                    <i class="fas fa-angle-right text-primary"></i>
+                                    <a href="#" class="text-secondary fw-bold text-decoration-none">Cheese</a>
+                                </li>
+                                <li class="d-flex gap-3 align-items-center">
+                                    <i class="fas fa-angle-right text-primary"></i>
+                                    <a href="#" class="text-secondary fw-bold text-decoration-none">Dairy</a>
+                                </li>
+                                <li class="d-flex gap-3 align-items-center">
+                                    <i class="fas fa-angle-right text-primary"></i>
+                                    <a href="#" class="text-secondary fw-bold text-decoration-none">Lactose Free</a>
+                                </li>
+                                <li class="d-flex gap-3 align-items-center">
+                                    <i class="fas fa-angle-right text-primary"></i>
+                                    <a href="#" class="text-secondary fw-bold text-decoration-none">Milk</a>
+                                </li>
+                                <li class="d-flex gap-3 align-items-center">
+                                    <i class="fas fa-angle-right text-primary"></i>
+                                    <a href="#" class="text-secondary fw-bold text-decoration-none">Milk Nutrition</a>
+                                </li>
+                                <li class="d-flex gap-3 align-items-center">
+                                    <i class="fas fa-angle-right text-primary"></i>
+                                    <a href="#" class="text-secondary fw-bold text-decoration-none">Yogurts</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card text-secondary px-4 py-5 border-0 bg-info rounded-4 align-items-center">
+                            <h5 class="text-uppercase fw-bold text mb-4">Filter by price</h5>
+                            <input type="range" class="form-range mb-3" min="10" max="59" step="1" id="product-range"
+                                value="10">
+                            <label for="product-range" class="form-label fw-bold mb-4">Price: $10 - $50</label>
+                            <div>
+                                <a href="#" class="btn btn-primary fw-bold">Filter</a>
+                            </div>
+                        </div>
+                        <div class="card text-secondary px-4 py-5 border-0 bg-info rounded-4 align-items-center">
+                            <h5 class="text-uppercase fw-bold text mb-4">Product tags</h5>
+                            <div class="d-flex flex-wrap gap-3">
+                                <span class="badge bg-white text-secondary fw-bold py-2 px-3 rounded-5">cheese</span>
+                                <span class="badge bg-white text-secondary fw-bold py-2 px-3 rounded-5">dairy</span>
+                                <span class="badge bg-white text-secondary fw-bold py-2 px-3 rounded-5">lactose</span>
+                                <span class="badge bg-white text-secondary fw-bold py-2 px-3 rounded-5">milk</span>
+                                <span class="badge bg-white text-secondary fw-bold py-2 px-3 rounded-5">nutrition</span>
+                                <span class="badge bg-white text-secondary fw-bold py-2 px-3 rounded-5">yogurts</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="rounded-5 bg-info py-2 px-4 d-flex justify-content-between align-items-center mb-4">
+                        <p class="mb-0">Show 1-6 of 18 results</p>
+                        <div>
+                            <select name="sorting" id="sorting" class="form-select text-secondary">
+                                <option value="">Default sorting</option>
+                                <option value="">Sort by popularity</option>
+                                <option value="">Sort by latest</option>
+                                <option value="">Sort by price: low to high</option>
+                                <option value="">Sort by price: high to low</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row gy-4">
+                        <div class="col-md-4">
+                            <a href="shop-detail.html" class="card border-2 product-card rounded-4 overflow-hidden">
+                                <div class="p-4">
+                                    <img class="card-img-top" src="images/products_01.jpg" alt="">
+                                </div>
+                                <div class="card-body d-flex justify-content-between px-4">
+                                    <div>
+                                        <h4 class="text-secondary fw-bold">Camembert</h4>
+                                        <p class="text-primary fw-bold">$13.99</p>
+                                    </div>
+                                    <span class="fa-stack sm-text ms-1 shopping-cart" style="margin-bottom: 1px;">
+                                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                                        <i class="fas fa-shopping-cart fa-stack-1x text-white"></i>
+                                    </span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="shop-detail.html" class="card border-2 product-card rounded-4 overflow-hidden">
+                                <div class="p-4">
+                                    <img class="card-img-top" src="images/products_02.jpg" alt="">
+                                </div>
+                                <div class="card-body d-flex justify-content-between px-4">
+                                    <div>
+                                        <h4 class="text-secondary fw-bold">Brie</h4>
+                                        <p class="text-primary fw-bold">$17.99</p>
+                                    </div>
+                                    <span class="fa-stack sm-text ms-1 shopping-cart" style="margin-bottom: 1px;">
+                                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                                        <i class="fas fa-shopping-cart fa-stack-1x text-white"></i>
+                                    </span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="shop-detail.html" class="card border-2 product-card rounded-4 overflow-hidden">
+                                <div class="p-4">
+                                    <img class="card-img-top" src="images/products_03.jpg" alt="">
+                                </div>
+                                <div class="card-body d-flex justify-content-between px-4">
+                                    <div>
+                                        <h4 class="text-secondary fw-bold">Chedder</h4>
+                                        <p class="text-primary fw-bold">$25.00</p>
+                                    </div>
+                                    <span class="fa-stack sm-text ms-1 shopping-cart" style="margin-bottom: 1px;">
+                                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                                        <i class="fas fa-shopping-cart fa-stack-1x text-white"></i>
+                                    </span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="shop-detail.html" class="card border-2 product-card rounded-4 overflow-hidden">
+                                <div class="p-4">
+                                    <img class="card-img-top" src="images/products_04.jpg" alt="">
+                                </div>
+                                <div class="card-body d-flex justify-content-between px-4">
+                                    <div>
+                                        <h4 class="text-secondary fw-bold">Gorgonzola</h4>
+                                        <p class="text-primary fw-bold">$17.99</p>
+                                    </div>
+                                    <span class="fa-stack sm-text ms-1 shopping-cart" style="margin-bottom: 1px;">
+                                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                                        <i class="fas fa-shopping-cart fa-stack-1x text-white"></i>
+                                    </span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="shop-detail.html" class="card border-2 product-card rounded-4 overflow-hidden">
+                                <div class="p-4">
+                                    <img class="card-img-top" src="images/products_05.jpg" alt="">
+                                </div>
+                                <div class="card-body d-flex justify-content-between px-4">
+                                    <div>
+                                        <h4 class="text-secondary fw-bold">Gauda</h4>
+                                        <p class="text-primary fw-bold">$13.49</p>
+                                    </div>
+                                    <span class="fa-stack sm-text ms-1 shopping-cart" style="margin-bottom: 1px;">
+                                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                                        <i class="fas fa-shopping-cart fa-stack-1x text-white"></i>
+                                    </span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="shop-detail.html" class="card border-2 product-card rounded-4 overflow-hidden">
+                                <div class="p-4">
+                                    <img class="card-img-top" src="images/products_06.jpg" alt="">
+                                </div>
+                                <div class="card-body d-flex justify-content-between px-4">
+                                    <div>
+                                        <h4 class="text-secondary fw-bold">Roquefort</h4>
+                                        <p class="text-primary fw-bold">$13.49</p>
+                                    </div>
+                                    <span class="fa-stack sm-text ms-1 shopping-cart" style="margin-bottom: 1px;">
+                                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                                        <i class="fas fa-shopping-cart fa-stack-1x text-white"></i>
+                                    </span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="shop-detail.html" class="card border-2 product-card rounded-4 overflow-hidden">
+                                <div class="p-4">
+                                    <img class="card-img-top" src="images/products_07.jpg" alt="">
+                                </div>
+                                <div class="card-body d-flex justify-content-between px-4">
+                                    <div>
+                                        <h4 class="text-secondary fw-bold">Cabrales</h4>
+                                        <p class="text-primary fw-bold">$12.00</p>
+                                    </div>
+                                    <span class="fa-stack sm-text ms-1 shopping-cart" style="margin-bottom: 1px;">
+                                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                                        <i class="fas fa-shopping-cart fa-stack-1x text-white"></i>
+                                    </span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="shop-detail.html" class="card border-2 product-card rounded-4 overflow-hidden">
+                                <div class="p-4">
+                                    <img class="card-img-top" src="images/products_08.jpg" alt="">
+                                </div>
+                                <div class="card-body d-flex justify-content-between px-4">
+                                    <div>
+                                        <h4 class="text-secondary fw-bold">Queso Fresco</h4>
+                                        <p class="text-primary fw-bold">$16.99</p>
+                                    </div>
+                                    <span class="fa-stack sm-text ms-1 shopping-cart" style="margin-bottom: 1px;">
+                                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                                        <i class="fas fa-shopping-cart fa-stack-1x text-white"></i>
+                                    </span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="shop-detail.html" class="card border-2 product-card rounded-4 overflow-hidden">
+                                <div class="p-4">
+                                    <img class="card-img-top" src="images/products_09.jpg" alt="">
+                                </div>
+                                <div class="card-body d-flex justify-content-between px-4">
+                                    <div>
+                                        <h4 class="text-secondary fw-bold">Ricotta</h4>
+                                        <p class="text-primary fw-bold">$13.99</p>
+                                    </div>
+                                    <span class="fa-stack sm-text ms-1 shopping-cart" style="margin-bottom: 1px;">
+                                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                                        <i class="fas fa-shopping-cart fa-stack-1x text-white"></i>
+                                    </span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer pt-7 pb-2 text-white bg-secondary">
+        <div class="container">
+            <div class="row">
+                <div class="offset-md-2 col-md-8">
+                    <div class="text-center mb-5">
+                        <img src="images/logo-white.png" alt="" class="mb-4">
+                        <p class="text-white-50">Lorem ipsum dolor sit amet, consectetur adipisicing elit. In, minus
+                            molestiae! Expedita iure
+                            itaque quidem voluptatem, alias ad. Provident, quisquam!</p>
+                    </div>
+                    <div class="row mb-5">
+                        <div class="col-md-4">
+                            <div class="text-center">
+                                <p class="text-primary fw-bold mb-0">Write us</p>
+                                <p>lathanhsi1008@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="text-center">
+                                <p class="text-primary fw-bold mb-0">Address</p>
+                                <p>12 Nguyễn Văn Bảo, Phường 4, Gò Vấp, Thành phố Hồ Chí Minh</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="text-center">
+                                <p class="text-primary fw-bold mb-0">Phone</p>
+                                <p>+84129864839</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center gap-2 mb-8">
+                        <a href="#" class="fa-stack ms-1" style="margin-bottom: 1px;">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fab fa-twitter fa-stack-1x text-secondary "></i>
+                        </a href="#">
+                        <a href="#" class="fa-stack ms-1" style="margin-bottom: 1px;">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fab fa-facebook fa-stack-1x text-secondary "></i>
+                        </a href="#">
+                        <a href="#" class="fa-stack ms-1" style="margin-bottom: 1px;">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fab fa-instagram fa-stack-1x text-secondary "></i>
+                        </a href="#">
+                        <a href="#" class="fa-stack ms-1" style="margin-bottom: 1px;">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fab fa-youtube fa-stack-1x text-secondary "></i>
+                        </a href="#">
+                    </div>
+                    <p class="text-center">Reference: <a
+                            href="https://themeforest.net/item/mildar-dairy-farm-wordpress-theme/29256755">https://themeforest.net/item/mildar-dairy-farm-wordpress-theme/29256755</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

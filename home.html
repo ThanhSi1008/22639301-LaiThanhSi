@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="css/fontawesome.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Farro:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top bg-white " style="font-size: 14px;">
+        <div class="container">
+
+            <!-- the hamburger -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbar-on-mobile">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- the brand -->
+            <a class="navbar-brand mx-auto" href="home.html">
+                <img src="images/logo.png" alt="" style="width: 100px;">
+            </a>
+
+            <!-- the cart on small screen => mobile -->
+            <li class="ms-auto d-inline-block d-lg-none">
+                <a class="nav-link-mobile p-0" data-bs-toggle="offcanvas" data-bs-target="#shoppingCartOffcanvas">
+                    <span><i class="fa-solid fa-cart-shopping text-primary"></i></span>
+                </a>
+            </li>
+
+            <!-- the nav bar on large screen => desktop -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav navbar-nav-1 ms-lg-6 mb-lg-0 fw-bold">
+                    <li class="nav-item">
+                        <a class="nav-link active nav-link-hover" href="home.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-hover" href="#">About us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-hover" href="shop.html">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-hover" href="#">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-hover" href="#">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link p-0" href="login.html">
+                            <span class="me-2"><i class="fa-solid fa-sign-out text-primary"></i></span>
+                            Logout
+                        </a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav navbar-nav-2 ms-auto mb-2 mb-lg-0 fw-bold d-flex">
+                    <li class="nav-item">
+                        <a class="nav-link p-0" href="#">
+                            <span class="me-2"><i class="fa-solid fa-search text-primary"></i></span>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown dropstart">
+                        <a class="nav-link p-0 dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"
+                            href="#">
+                            <span class="me-2"><i class="fa-solid fa-user text-primary"></i></span>
+                        </a>
+                        <div class="dropdown-menu p-0">
+                            <div class="sign-in border border-primary px-4 pt-5 pb-3 bg-light text-black"
+                                style="min-width: 350px;">
+                                <div class="d-flex justify-content-between">
+                                    <h3>Sign in</h3>
+                                    <a href="signup.html" class="text-primary">Create an Account</a>
+                                    <!-- Chỉnh sửa tại đây -->
+                                </div>
+                                <form class="mb-3">
+                                    <div class="mb-3">
+                                        <label for="username" class="form-label">Username or email <span
+                                                class="text-danger">*</span></label>
+                                        <input class="form-control text-black" type="text" id="username"
+                                            placeholder="Username">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="password" class="form-label">Password <span
+                                                class="text-danger">*</span></label>
+                                        <input class="form-control text-black" type="text" id="password"
+                                            placeholder="Password">
+                                    </div>
+                                    <div class="d-grid">
+                                        <button class="btn btn-primary fw-bold text-uppercase">
+                                            Login
+                                            <span class="fa-stack sm-text ms-1" style="margin-bottom: 1px;">
+                                                <i class="fas fa-circle fa-stack-2x text-black"></i>
+                                                <i class="fas fa-play fa-stack-1x text-primary"></i>
+                                            </span>
+                                        </button>
+                                    </div>
+                                </form>
+                                <div class="text-end">
+                                    <p class="text-primary">Lost your password?</p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link p-0" href="#" data-bs-toggle="offcanvas"
+                            data-bs-target="#shoppingCartOffcanvas">
+                            <span class="me-2"><i class="fa-solid fa-cart-shopping text-primary"></i></span>
+                            <span class="fa-stack ms-1" style="font-size: 10px;">
+                                <i class="fas fa-circle text-primary fa-stack-2x"></i>
+                                <p class="fa-stack-1x text-black">0</p>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- the shopping cart offcanvas -->
+    <div class="offcanvas offcanvas-end text-black" tabindex="-1" id="shoppingCartOffcanvas"
+        aria-labelledby="offcanvasLabel">
+        <div class="offcanvas-header border-bottom py-4">
+            <h5 class="offcanvas-title" id="offcanvasLabel">Shopping cart</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <p class="text-black-50 text-center xxl-text">No products in the cart</p>
+        </div>
+    </div>
+
+    <!-- the nav bar canvas on small screen => mobile  -->
+    <div class="offcanvas offcanvas-start text-bg-light" tabindex="-1" id="navbar-on-mobile" style="z-index: 1055">
+        <div class="offcanvas-header px-4 pt-4">
+            <h5 class="offcanvas-title fw-bold" id="offcanvasLabel">main menu</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <img class="mx-4" src="images/line-break.png" alt="" style="width: 60px;">
+        <div class="offcanvas-body">
+            <ul class="navbar-nav-mobile fw-bold list-group list-group-flush">
+                <li class="navbar-item-mobile list-group-item p-0 py-2 mx-3">
+                    <a class="navbar-link-mobile text-decoration-none active" href="#">HOME</a>
+                </li>
+                <li class="navbar-item-mobile list-group-item p-0 py-2 mx-3">
+                    <a class="navbar-link-mobile text-decoration-none" href="#">SHOP</a>
+                </li>
+                <li class="navbar-item-mobile list-group-item p-0 py-2 mx-3">
+                    <a class="navbar-link-mobile text-decoration-none" href="#">ABOUT</a>
+                </li>
+                <li class="navbar-item-mobile list-group-item p-0 py-2 mx-3">
+                    <a class="navbar-link-mobile text-decoration-none" href="#">BLOG</a>
+                </li>
+                <li class="navbar-item-mobile list-group-item p-0 py-2 mx-3">
+                    <a class="navbar-link-mobile text-decoration-none" href="#">PAGES</a>
+                </li>
+                <li class="navbar-item-mobile list-group-item p-0 py-2 mx-3">
+                    <a class="navbar-link-mobile text-decoration-none" href="#">CONTACT</a>
+                </li>
+                <li class="navbar-item-mobile list-group-item p-0 py-2 mx-3">
+                    <a class="navbar-link-mobile text-decoration-none p-0" href="#">
+                        <span class="me-2"><i class="fa-solid fa-location-dot text-primary"></i></span>
+                        Store Locator
+                    </a>
+                </li>
+                <li class="navbar-item-mobile list-group-item p-0 py-2 mx-3 dropdown dropstart">
+                    <a class="navbar-link-mobile text-decoration-none p-0" data-bs-toggle="modal"
+                        data-bs-target="#signInModal" href="#">
+                        <span class="me-2"><i class="fa-solid fa-user text-primary"></i></span>
+                        Sign In
+                    </a>
+                    <!-- Modal -->
+                    <div class="modal fade" id="signInModal" data-bs-backdrop="static" data-bs-keyboard="false"
+                        style="z-index: 1800;">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header border-bottom-0    ">
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body p-0">
+                                    <div class="sign-in px-4 pt-3 pb-3 bg-light text-black w-100">
+                                        <div class="d-flex justify-content-between">
+                                            <h3>Sign in</h3>
+                                            <a href="#" class="text-primary">Create an Account</a>
+                                        </div>
+                                        <form class="mb-3">
+                                            <div class="mb-3">
+                                                <label for="username" class="form-label">Username or email <span
+                                                        class="text-danger">*</span></label>
+                                                <input class="form-control text-black" type="text" id="username"
+                                                    placeholder="Username">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="password" class="form-label">Password <span
+                                                        class="text-danger">*</span></label>
+                                                <input class="form-control text-black" type="text" id="password"
+                                                    placeholder="Password">
+                                            </div>
+                                            <div class="d-grid">
+                                                <button class="btn btn-primary fw-bold text-uppercase">
+                                                    Login
+                                                    <span class="fa-stack sm-text ms-1" style="margin-bottom: 1px;">
+                                                        <i class="fas fa-circle fa-stack-2x text-black"></i>
+                                                        <i class="fas fa-play fa-stack-1x text-primary"></i>
+                                                    </span>
+                                                </button>
+                                            </div>
+                                        </form>
+                                        <div class="text-end">
+                                            <p class="text-primary">Lost your password?</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <header class="hero pt-10 pb-9">
+        <div class="container">
+            <div class="row">
+                <div class="offset-md-3 col-md-6">
+                    <h1 class="display-2 text-center text-white fw-bold mb-3">Powered Milk And Dairy Product</h1>
+                    <p class="fs-5 text-center mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi
+                        tenetur,
+                        nostrum, laborum quibusdam repudiandae</p>
+                    <div class="d-flex justify-content-center gap-3">
+                        <button class="btn btn-primary fw-bold">Read more</button>
+                        <button class="btn btn-secondary fw-bold">Contact us</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="py-7 text-secondary">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="image-container">
+                        <img src="images/farmer.png" class="img-fluid rounded-5" alt="">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <p class="fw-bold text-primary">About company</p>
+                    <h2 class="fw-bold text-secondary display-5 mb-3">Our Farm Creates the Best Dairy Products</h2>
+                    <p class="text-secondary mb-4">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa laborum tempora hic voluptates
+                        praesentium, et corrupti aut voluptate fugiat quis sint
+                    </p>
+                    <ul class="list-unstyled vstack gap-3">
+                        <li>
+                            <span class="fa-stack ms-1" style="margin-bottom: 1px;">
+                                <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                                <i class="fas fa-check fa-stack-1x text-white"></i>
+                            </span>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        </li>
+                        <li>
+                            <span class="fa-stack ms-1" style="margin-bottom: 1px;">
+                                <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                                <i class="fas fa-check fa-stack-1x text-white"></i>
+                            </span>
+                            Consectetur adipisicing elit. Vero, quae?
+                        </li>
+                        <li>
+                            <span class="fa-stack ms-1" style="margin-bottom: 1px;">
+                                <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                                <i class="fas fa-check fa-stack-1x text-white"></i>
+                            </span>
+                            Amet consectetur adipisicing elit. Vero, quae?
+                        </li>
+                        <li class="mt-3">
+                            <button class="btn btn-primary fw-bold">Read more</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="bg-secondary py-8">
+        <div class="container">
+            <div class="row mb-3">
+                <div class="offset-md-3 col-md-6">
+                    <p class="text-center text-primary fw-bold">Our Products</p>
+                    <h2 class="text-center text-white fw-bold display-5 mb-3">Organic Milk Products</h2>
+                    <p class="text-center text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam
+                        amet laudantium odio autem temporibus maxime ex eum corporis illum? Eligendi!</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 position-relative">
+                    <img src="images/product-1.jpg" alt="" class="img-fluid rounded-5">
+                    <div class="d-flex justify-content-between product-description">
+                        <p class="text-secondary fs-3 fw-bold">Cattage Cheese <br> and Cream</p>
+                        <span class="fa-stack ms-1" style="margin-bottom: 1px">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fa-sharp fa-solid fa-angle-right fa-stack-1x text-secondary"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-4 position-relative">
+                    <img src="images/product-2.jpg" alt="" class="img-fluid rounded-5">
+                    <div class="d-flex justify-content-between product-description">
+                        <p class="text-secondary fs-3 fw-bold">Organic Milk <br> and Kefir</p>
+                        <span class="fa-stack ms-1" style="margin-bottom: 1px">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fa-sharp fa-solid fa-angle-right fa-stack-1x text-secondary"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-4 position-relative">
+                    <img src="images/product-3.jpg" alt="" class="img-fluid rounded-5">
+                    <div class="d-flex justify-content-between product-description">
+                        <p class="fs-3 fw-bold text-white">Hard Cheese <br> Product</p>
+                        <span class="fa-stack ms-1" style="margin-bottom: 1px">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fa-sharp fa-solid fa-angle-right fa-stack-1x text-secondary"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-8 text-secondary quality">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 d-flex flex-column justify-content-center">
+                    <div class="d-flex flex-column justify-content-center ">
+                        <div class="vstack gap-2 mb-5">
+                            <h2 class="fw-bold">Our products <span class="text-primary">are based</span> on high quality
+                                milk</h2>
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Harum aliquid fugiat error,
+                                eaque
+                                qui velit aut mollitia.</p>
+                        </div>
+                        <div class="vstack gap-2 mb-3">
+                            <h3 class="fw-bold">Environmentally <span class="text-primary">friendly</span></h3>
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Harum aliquid fugiat error,
+                                eaque
+                                qui velit aut mollitia.</p>
+                        </div>
+                        <div>
+                            <a href="#" class="btn btn-primary fw-bold">Read more</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <img src="images/bottle.png" alt="" class="img-fluid">
+                </div>
+                <div class="col-md-4 d-flex flex-column justify-content-center">
+                    <div class="d-flex flex-column justify-content-center  gap-6">
+                        <div class="d-flex align-items-center gap-3">
+                            <img src="images/quality-1.png" alt="">
+                            <div>
+                                <h4 class="fw-bold">100% Organic Products</h4>
+                                <p>Lorem ipsum dolor sit amet dolor sit amet consectetur</p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center gap-3">
+                            <img src="images/quality-2.png" alt="">
+                            <div>
+                                <h4 class="fw-bold">Recommended for babies</h4>
+                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center gap-3">
+                            <img src="images/quality-3.png" alt="">
+                            <div>
+                                <h4 class="fw-bold">High Quality Raw Milk</h4>
+                                <p>Ipsum dolor sit amet, consectetur adipisicing
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="testimonials py-8 text-secondary ">
+        <div class="container">
+            <div class="text-center mb-6">
+                <div class="text-primary mb-2">Testimonials</div>
+                <h2 class="display-6 fw-bold">What Our Clients Say</h2>
+            </div>
+            <div id="carouselExample" class="carousel slide">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row">
+                            <div class="offset-md-3 col-md-6">
+                                <div class="d-flex flex-column align-items center gap-4 text-center">
+                                    <p class="fs-2">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                                        Sapiente quam ullam
+                                        similique doloribus culpa corporis quasi, iure et omnis pariatur.</p>
+                                    <div class="d-flex flex-column align-items-center gap-2">
+                                        <img src="images/user-1.jpg" alt="" class="rounded-circle"
+                                            style="max-width: 75px;">
+                                        <p>Patrick Wilson</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row">
+                            <div class="offset-md-3 col-md-6">
+                                <div class="d-flex flex-column align-items center gap-4 text-center">
+                                    <p class="fs-2">Facere asperiores culpa illo at ex quae nemo, temporibus numquam
+                                        nesciunt. Voluptatem quod neque sit deleniti molestiae maxime voluptate enim</p>
+                                    <div class="d-flex flex-column align-items-center gap-2">
+                                        <img src="images/user-2.jpg" alt="" class="rounded-circle"
+                                            style="max-width: 75px;">
+                                        <p>Peter Scott</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row">
+                            <div class="offset-md-3 col-md-6">
+                                <div class="d-flex flex-column align-items center gap-4 text-center">
+                                    <p class="fs-2">Eum, dignissimos voluptas quia laudantium, dolores recusandae rerum
+                                        earum doloribus ipsa nisi, pariatur necessitatibus deserunt odio facere.</p>
+                                    <div class="d-flex flex-column align-items-center gap-2">
+                                        <img src="images/user-3.jpg" alt="" class="rounded-circle"
+                                            style="max-width: 75px;">
+                                        <p>Matthew mcconaughey</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon bg-primary rounded-cirlce"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon bg-primary"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </section>
+    <footer class="footer pt-7 pb-2 text-white bg-secondary">
+        <div class="container">
+            <div class="row">
+                <div class="offset-md-2 col-md-8">
+                    <div class="text-center mb-5">
+                        <img src="images/logo-white.png" alt="" class="mb-4">
+                        <p class="text-white-50">Lorem ipsum dolor sit amet, consectetur adipisicing elit. In, minus
+                            molestiae! Expedita iure
+                            itaque quidem voluptatem, alias ad. Provident, quisquam!</p>
+                    </div>
+                    <div class="row mb-5">
+                        <div class="col-md-4">
+                            <div class="text-center">
+                                <p class="text-primary fw-bold mb-0">Write us</p>
+                                <p>lathanhsi1008@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="text-center">
+                                <p class="text-primary fw-bold mb-0">Address</p>
+                                <p>12 Nguyễn Văn Bảo, Phường 4, Gò Vấp, Thành phố Hồ Chí Minh</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="text-center">
+                                <p class="text-primary fw-bold mb-0">Phone</p>
+                                <p>+84129864839</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center gap-2 mb-8">
+                        <a href="#" class="fa-stack ms-1" style="margin-bottom: 1px;">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fab fa-twitter fa-stack-1x text-secondary "></i>
+                        </a href="#">
+                        <a href="#" class="fa-stack ms-1" style="margin-bottom: 1px;">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fab fa-facebook fa-stack-1x text-secondary "></i>
+                        </a href="#">
+                        <a href="#" class="fa-stack ms-1" style="margin-bottom: 1px;">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fab fa-instagram fa-stack-1x text-secondary "></i>
+                        </a href="#">
+                        <a href="#" class="fa-stack ms-1" style="margin-bottom: 1px;">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fab fa-youtube fa-stack-1x text-secondary "></i>
+                        </a href="#">
+                    </div>
+                    <p class="text-center">Reference: <a
+                            href="https://themeforest.net/item/mildar-dairy-farm-wordpress-theme/29256755">https://themeforest.net/item/mildar-dairy-farm-wordpress-theme/29256755</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
